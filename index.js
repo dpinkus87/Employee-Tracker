@@ -1,4 +1,4 @@
-const {prompt} = require("inquirer")
+const {prompt, default: inquirer} = require("inquirer")
 const {menuQuest} = require("./questions")
 const db = require("./connection/connection");
 
@@ -19,6 +19,10 @@ function promptMenu() {
             case "view all employees":
                 viewAllemployees()
                 break;
+
+            // case "add an employee":
+            //     addEmployee()
+            //     break;
 
                 default:
                 console.log("Something went wrong!");
@@ -51,5 +55,18 @@ function viewAllemployees() {
     })
 }
 
+// function addEmployee() {
+//     db.promise().query(
+//         'INSERT INTO employee (first_name, last_name, role_id, manager_id) VALUES (?, ?, ?, ?)',
+//         [data.firstname, data.lastname, data.employeerole, data.employeemanager],
+//         function (err, results) {
+//           if (err) {
+//             console.log(err);
+//           } else {
+//             console.log(results);
+//           }
+//         }
+//       );
+//     }      
 
 promptMenu()
